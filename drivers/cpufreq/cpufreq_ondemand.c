@@ -400,7 +400,6 @@ static ssize_t store_ignore_nice_load(struct dbs_data *dbs_data,
 		if (od_tuners->ignore_nice_load)
 			dbs_info->cdbs.prev_cpu_nice =
 				kcpustat_cpu(j).cpustat[CPUTIME_NICE];
-
 	}
 	return count;
 }
