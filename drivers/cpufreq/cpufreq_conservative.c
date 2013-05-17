@@ -124,8 +124,10 @@ static void cs_dbs_timer(struct work_struct *work)
 	mutex_unlock(&core_dbs_info->cdbs.timer_mutex);
 }
 
-static int dbs_cpufreq_notifier(struct notifier_block *nb, unsigned long val,
-		void *data)
+/* keep track of frequency transitions */
+static int
+dbs_cpufreq_notifier(struct notifier_block *nb, unsigned long val,
+		     void *data)
 {
 	struct cpufreq_freqs *freq = data;
 	struct cs_cpu_dbs_info_s *dbs_info =
@@ -240,8 +242,7 @@ static ssize_t store_ignore_nice_load(struct dbs_data *dbs_data,
 					&dbs_info->cdbs.prev_cpu_wall, 0);
 		if (cs_tuners->ignore_nice_load)
 			dbs_info->cdbs.prev_cpu_nice =
-				kcpustat_cpu(j).cpustat[CPUTIME_NICE];
-	}
+				kcpustat_cpu(j).cpustat[CPUTIME_NICE];	}
 	return count;
 }
 
