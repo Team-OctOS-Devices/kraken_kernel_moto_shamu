@@ -87,12 +87,12 @@ config CPU_FREQ_DEFAULT_GOV_ONDEMAND
 	  governor. If unsure have a look at the help section of the
 	  driver. Fallback governor will be the performance governor.
 
-config CPU_FREQ_DEFAULT_GOV_ELEMENTALX
-	bool "elementalx"
-	select CPU_FREQ_GOV_ELEMENTALX
+config CPU_FREQ_DEFAULT_GOV_KRAKEN
+	bool "kraken"
+	select CPU_FREQ_GOV_KRAKEN
 	select CPU_FREQ_GOV_PERFORMANCE
 	help
-	  Use the CPUFreq governor 'elementalx' as default.
+	  Use the CPUFreq governor 'kraken' as default.
 
 config CPU_FREQ_DEFAULT_GOV_CONSERVATIVE
 	bool "conservative"
@@ -193,14 +193,14 @@ config CPU_FREQ_GOV_ONDEMAND
 
 	  If in doubt, say N.
 
-config CPU_FREQ_GOV_ELEMENTALX
-	tristate "'elementalx' cpufreq policy governor"
+config CPU_FREQ_GOV_KRAKEN
+	tristate "'kraken' cpufreq policy governor"
 	select CPU_FREQ_TABLE
 	help
-	  'elementalx' - This driver adds a dynamic cpufreq policy governor.
+	  'kraken' - This driver adds a dynamic cpufreq policy governor.
 
 	  To compile this driver as a module, choose M here: the
-	  module will be called cpufreq_elementalx.
+	  module will be called cpufreq_kraken.
 
 	  For details, take a look at linux/Documentation/cpu-freq.
 
@@ -297,48 +297,10 @@ config SUSPEND_BOOSTER
 	help
 	  Samsung TN PowerManagement Feature.
 
-config CPU_FREQ_GOV_LIONHEART
-           tristate "'lionheart' cpufreq governor"
-           depends on CPU_FREQ
-           help
-             lionheart' - a "smart" optimized governor!
-             If in doubt, say N.
-
-config CPU_FREQ_GOV_SMARTMAX
-           tristate "'smartmax' cpufreq governor"
-           depends on CPU_FREQ
-           help
-             smartmax' - a "smart" optimized governor!
-             If in doubt, say N.
-
-config CPU_FREQ_GOV_SMARTASS2
-  tristate "'smartassV2' cpufreq governor"
-  depends on CPU_FREQ
-  help
-    'smartassV2' - a "smart" governor
-
 config SEC_DVFS
 	bool "DVFS job"
 	default n
 	depends on CPU_FREQ
-
-config CPU_FREQ_GOV_INTELLIDEMAND
-        tristate "'intellidemand' cpufreq policy governor"
-        select CPU_FREQ_TABLE
-        help
-          'intellidemand' - This driver adds a dynamic cpufreq policy governor.
-          The governor does a periodic polling and
-          changes frequency based on the CPU utilization.
-          The support for this governor depends on CPU capability to
-          do fast frequency switching (i.e, very low latency frequency
-          transitions). with browsing detection based on GPU loading
-
-          To compile this driver as a module, choose M here: the
-          module will be called cpufreq_ondemand.
-
-          For details, take a look at linux/Documentation/cpu-freq.
-
-          If in doubt, say N.
 
 config INTELLI_MAX_ACTIVE_FREQ
 	int "Max Active Freq for Intellidemand"
