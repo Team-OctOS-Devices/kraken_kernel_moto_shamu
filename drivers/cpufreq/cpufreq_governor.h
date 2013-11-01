@@ -207,6 +207,7 @@ struct dk_dbs_tuners {
 	unsigned int ignore_nice_load;
 	unsigned int sampling_rate;
 };
+
 struct ex_dbs_tuners {
 	unsigned int ignore_nice_load;
 	unsigned int sampling_rate;
@@ -271,6 +272,9 @@ struct cs_ops {
 	struct notifier_block *notifier_block;
 };
 
+struct dk_ops {
+	void (*get_cpu_frequency_table)(int cpu);
+};
 static inline int delay_for_sampling_rate(unsigned int sampling_rate)
 {
 	int delay = usecs_to_jiffies(sampling_rate);
