@@ -516,10 +516,16 @@ static int cpufreq_parse_dt(struct device *dev)
 		 */
 		if (i > 0 && f <= freq_table[i-1].frequency)
 			break;
+
+		/*
+		 * If current frequency being read is greater than the
+		 * max frequency allowed skip adding it to the table.
+		 */
 		if (f > arg_cpu_oc) {
 			nf = i;
 			break;
 		}
+
 		freq_table[i].driver_data = i;
 		freq_table[i].frequency = f;
 
@@ -547,12 +553,14 @@ static int cpufreq_parse_dt(struct device *dev)
 					GFP_KERNEL);
 	if (!krait_freq_table)
 		return -ENOMEM;
+
 	*krait_freq_table = *freq_table;
 
 	for (i = 0, j = 0; i < nf; i++, j += 3)
 		krait_freq_table[i].frequency = data[j];
 	krait_freq_table[i].frequency = CPUFREQ_TABLE_END;
 #endif
+
 	devm_kfree(dev, data);
 
 	return 0;
