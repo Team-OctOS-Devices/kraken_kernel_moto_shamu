@@ -1,4 +1,3 @@
-
 @ ====================================================================
 @ Written by Andy Polyakov <appro@openssl.org> for the OpenSSL
 @ project. The module is, however, dual licensed under OpenSSL and

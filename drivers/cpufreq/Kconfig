@@ -247,8 +247,6 @@ config CPU_FREQ_GOV_CONSERVATIVE
 
 	  If in doubt, say N.
 
-<<<<<<< HEAD
-=======
 config CPU_FREQ_GOV_BIOSHOCK
 	tristate "'bioshock' cpufreq bioshock"
 	depends on CPU_FREQ
@@ -272,7 +270,6 @@ config CPU_FREQ_GOV_UMBRELLA_CORE
 	  The governor is based on interactive to provide a resident controller
 	  which interprets unnecessary battery drain as evil.
 	  
->>>>>>> 72fd899... cpufreq: Initial setup for new gov [Umbrella Core]
 config CPU_BOOST
 	tristate "Event base short term CPU freq boost"
 	depends on CPU_FREQ
