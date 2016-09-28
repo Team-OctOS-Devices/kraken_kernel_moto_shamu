@@ -307,7 +307,6 @@ config SEC_DVFS
 	default n
 	depends on CPU_FREQ
 
-<<<<<<< HEAD
 config CPU_FREQ_GOV_INTELLIDEMAND
         tristate "'intellidemand' cpufreq policy governor"
         select CPU_FREQ_TABLE
@@ -326,8 +325,6 @@ config CPU_FREQ_GOV_INTELLIDEMAND
 
           If in doubt, say N.
 
-=======
->>>>>>> 049f09a... lib: add support for LZ4-compressed kernel
 config INTELLI_MAX_ACTIVE_FREQ
 	int "Max Active Freq for Intellidemand"
 	depends on CPU_FREQ_GOV_INTELLIDEMAND
